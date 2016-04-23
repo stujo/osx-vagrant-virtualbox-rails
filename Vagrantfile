@@ -13,21 +13,24 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Forward the Rails server default port to the host
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 3000, host: 3001
   config.vm.network "private_network", type: "dhcp"
 
   # Use Chef Solo to provision our virtual machine
   config.vm.provision :chef_solo do |chef|
+    
+    chef.log_level = ENV.fetch("CHEF_LOG", "info").downcase.to_sym
+
     chef.cookbooks_path = ["cookbooks", "site-cookbooks"]
 
     chef.add_recipe "apt"
-    chef.add_recipe "nodejs"
     chef.add_recipe "ruby_build"
     chef.add_recipe "rbenv::user"
     chef.add_recipe "rbenv::vagrant"
     chef.add_recipe "vim"
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::ruby"
+    chef.add_recipe "pizzastore::database"
 
     # Install Ruby 2.2.1 and Bundler
     # Set an empty root password for MySQL to make things simple

@@ -1,0 +1,10 @@
+name 'pizzastore'
+maintainer 'Stujo'
+maintainer_email 'stujo@stujo.com'
+license 'all_rights'
+description 'Installs/Configures pizzastore'
+long_description 'Installs/Configures pizzastore'
+version '0.1.0'
+depends 'database', '~> 4.0.9'
+depends 'postgresql', '~> 4.0.6'
+
