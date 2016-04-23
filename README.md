@@ -240,9 +240,19 @@ $ git add .
 $ git commit -m'Add Cheffile'
 ```
 
-# Add Custom Recipe to Setup Database
+# Optional : Add Custom Recipe to Setup Database
+
+When you spin up the VM, there will not be a database or a user for the rails app to connect with. 
+
+You can handle this manually within the ``vagrant ssh`` shell using ``postgres createuser vagrant`` and ``bin/rake db:create``
+
+But I wanted to play with chef a bit so I tried this:
 
 * Review the files in the [site-cookbooks](./site-cookbooks) folder
+
+If you don't want to go through the hassle of creating your own recipe then just 
+remove ``chef.add_recipe "pizzastore::database"`` from your ``Vagrantfile`` and fix the 
+database problems as described above
 
 # Start Vagrant and Download Image
 
