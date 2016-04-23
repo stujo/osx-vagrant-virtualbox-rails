@@ -128,17 +128,11 @@ Using -d=postgresql -T -B --skip-spring from /Users/stuart/.railsrc
       create  vendor/assets/stylesheets
       create  vendor/assets/stylesheets/.keep
 $ cd pizzastore/
-$ bundle install
 $ git init
 $ git add .
 $ git commit -m'Intial Commit'
-$ rake db:create
-$ rails s
 ```
-* Created Rails app and a local postgres database on the OSX Host ([assuming postgres was installed](https://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/))
-* Test out [http://localhost:3000/](http://localhost:3000/)
-* ``Ctrl-C`` to kill the rails server
- 
+
 # Setup Vagrant in the App
 
 ```
@@ -165,7 +159,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Forward the Rails server default port to the host
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
+  config.vm.network :forwarded_port, guest: 3000, host: 3001
   config.vm.network "private_network", type: "dhcp"
 
   # Use Chef Solo to provision our virtual machine
@@ -182,7 +176,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "vim"
     chef.add_recipe "postgresql::server"
     chef.add_recipe "postgresql::ruby"
-    chef.add_recipe "pizzastore"
+    chef.add_recipe "pizzastore::database"
 
     # Install Ruby 2.2.1 and Bundler
     # Set an empty root password for MySQL to make things simple
@@ -245,6 +239,10 @@ cookbook 'vim'
 $ git add .
 $ git commit -m'Add Cheffile'
 ```
+
+# Add Custom Recipe to Setup Database
+
+* Review the files in the [site-cookbooks](./site-cookbooks) folder
 
 # Start Vagrant and Download Image
 
