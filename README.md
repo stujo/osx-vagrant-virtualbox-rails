@@ -2,13 +2,15 @@
 Notes on Setting up OSX, Vagrant, Virtual Box and Rails
 
 
-Based on Following these 
+## Based on the following 
 
 * [Using Vagrant for Rails Development](https://gorails.com/guides/using-vagrant-for-rails-development)
 * [Vlad Igleba](http://vladigleba.com/blog/2014/07/28/provisioning-a-rails-server-using-chef-part-1-introduction-to-chef-solo/)
 * [Learn Chef](https://learn.chef.io/manage-a-web-app/ubuntu/configure-the-database/)
 * [Debugging Chef Runs with Ruby](https://mlafeldt.github.io/blog/debugging-chef-runs-with-chef-log/)
 * [Rails Server IP Binding](http://stackoverflow.com/questions/25951969/rails-4-2-and-vagrant-get-a-blank-page-and-nothing-in-the-logs#27829889)
+
+#Start Downloads
 
 * Start Download Vagrant for MAC OS X - [here](https://www.vagrantup.com/downloads.html) 84MB Installer
 
