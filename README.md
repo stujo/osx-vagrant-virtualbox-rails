@@ -1,6 +1,5 @@
-# osx-vagrant-virtualbox-rails
-Notes on Setting up OSX, Vagrant, Virtual Box and Rails
-
+# OSX Vagrant Virtualbox Rails Postgres
+Example Sample App and Notes on Setting up OSX, Vagrant, Virtual Box and Rails with Postgres
 
 ## Based on the following 
 
